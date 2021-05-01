@@ -1,0 +1,14 @@
+{
+  "search.exclude": {
+    // "out": true // set this to false to include "out" folder in search results
+    "**/.node_modules": true,
+    "**/.pnp.*": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib", // we want to use the TS server from our yarn folder to control its version
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "prettier.prettierPath": "node_modules/prettier/index.js",
+  "eslint.nodePath": "node_modules",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.useEditorConfig": true,
+  "editor.formatOnSave": true
+}
