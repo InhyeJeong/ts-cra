@@ -1,25 +1,31 @@
-import { FC } from 'react';
-import logo from './logo.svg';
+import React, { FC, Suspense } from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { routes } from './routes/config';
 
 export const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={'loading...'}>
+      <BrowserRouter>
+        <Switch>
+          {routes.map((route) => {
+            console.log('route', route);
+            return (
+              <Route
+                key={route.path}
+                path={route.path}
+                render={(props) => {
+                  const componentProps = { ...props, routes: route.routes };
+                  return (
+                    route.component && <route.component {...componentProps} />
+                  );
+                }}
+              />
+            );
+          })}
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 
