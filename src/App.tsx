@@ -1,9 +1,9 @@
-import React, { FC, Suspense } from 'react';
+import { ReactElement, Suspense } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { routes } from './routes/config';
 
-export const App: FC = () => {
+export function App(): ReactElement {
   return (
     <Suspense fallback={'loading...'}>
       <BrowserRouter>
@@ -27,6 +27,6 @@ export const App: FC = () => {
       </BrowserRouter>
     </Suspense>
   );
-};
+}
 
 export default App;

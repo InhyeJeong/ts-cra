@@ -1,8 +1,8 @@
-import { FC } from 'react';
-import { Layout } from '../../components/common/Layout';
+import { ReactElement } from 'react';
+import { Layout } from '../../components';
 
-const Home: FC = () => {
+function Home(): ReactElement {
   return <Layout>HOME!</Layout>;
-};
+}
 
 export default Home;
